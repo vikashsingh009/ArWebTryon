@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="content-language" content="en-EN" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
-    <title>3D earrings demo</title>
-    
-    <!-- INCLUDE WebAR.rocks.face MAIN SCRIPT -->
-    <script src="../../dist/WebARRocksFace.js"></script>
+.price {
+  color: grey;
+  font-size: 22px;
+}
 
-    <!-- INCLUDE EARRINGS3D HELPER -->
-    <script src="../../helpers/WebARRocksFaceEarrings3DHelper.js"></script>
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
 
-    <!-- THREE.JS, FOR THE RENDERING -->
-    <!-- WARNING: for production you should replace three.js by three.min.js -->
-    <script src="../../libs/three/v136/build/three.js"></script>
-    <script src="../../libs/three/v136/examples/js/loaders/GLTFLoader.js"></script>
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</head>
+<body>
 
-    <!-- THREE.JS RGBE loader - you can remove it if you don't use envmap: -->
-    <script src="../../libs/three/v136/examples/js/loaders/RGBELoader.js"></script>
+<h2 style="text-align:center">Immersive  Tryon</h2>
 
-    <!-- THREE.JS postprocessing - you can remove it if you don't use bloom or temporal anti aliasing : -->
-    <script src="../../libs/three/v136/examples/js/postprocessing/EffectComposer.js"></script>
-    <script src="../../libs/three/v136/examples/js/postprocessing/ShaderPass.js"></script>
-    <script src="../../libs/three/v136/examples/js/postprocessing/RenderPass.js"></script>
-    <script src="../../libs/three/v136/examples/js/shaders/CopyShader.js"></script>
+<div class="card">
+  <img src="../earrings2D/images/earring.png" alt="Denim Jeans" style="width:13%">
+  <p class="price">$19.99</p>
+  <p><button onclick="location.href='http://localhost:8081/earrings2D/'">Try-ON</button></p>
+</div>
 
-    <!-- Bloom postprocessing: -->
-    <script src="../../libs/three/v136/examples/js/postprocessing/UnrealBloomPassTweaked.js"></script>
-    <script src="../../libs/three/v136/examples/js/shaders/LuminosityHighPassShader.js"></script>
-    
-    <!-- TAA specifics: -->
-    <script src="../../libs/three/v136/examples/js/postprocessing/SSAARenderPass.js"></script>
-    <script src="../../libs/three/v136/examples/js/postprocessing/TAARenderPass.js"></script>
-
-    <!-- INCLUDE RESIZER HELPER -->
-    <script src="../../helpers/WebARRocksResizer.js"></script>
-
-    <!-- INCLUDE LANDMARKS STABILIZER -->
-    <script src="../../helpers/stabilizers/OneEuroStabilizer.js"></script>
-
-    <!-- INCLUDE DEMO SCRIPT -->
-    <script src="./main.js"></script>
-
-    <style type="text/css">
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
-      #WebARRocksFaceCanvas, #threeCanvas {
-        position: fixed;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        /* mirror the canvas: */
-        transform: rotateY(180deg);
-      }
-      #WebARRocksFaceCanvas {
-        z-index: 0;
-      }
-      #threeCanvas {
-        z-index: 1;
-        /*background-color: rgba(255, 0, 0, 0.5);*/
-      }
-    </style>
-  </head>
-  <body>
-    <!-- canvas where the earring will be displayed: -->
-    <canvas width="600" height="600" id='threeCanvas'></canvas>
-
-    <!-- canvas where the video will be displayed: -->
-    <canvas width="600" height="600" id='WebARRocksFaceCanvas'></canvas>
-  <script type="text/javascript" src="bundle.js"></script></body>
+<div class="card">
+  <model-viewer src="../earrings3D/assets/earringsSimple.glb" auto-rotate camera-controls alt="cube" background-color="#455A64"></model-viewer>
+  <p class="price">$19.99</p>
+  <p><button onclick="location.href='http://localhost:8081/earrings3D/'">Try-ON</button></p>
+</div>
+<script type="text/javascript" src="bundle.js"></script></body>
 </html>
- 

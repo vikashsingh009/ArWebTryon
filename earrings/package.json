@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server --mode=development --open",
+    "start": ".\\node_modules\\.bin\\webpack-dev-server --mode=development --open",
     "build": ".\\node_modules\\.bin\\webpack --mode=production"
   },
-  "author": "singh vikash",
+  "author": "singh-vikash",
   
   "devDependencies": {
     "copy-webpack-plugin": "^4.6.0",

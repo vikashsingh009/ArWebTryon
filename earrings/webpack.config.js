@@ -12,12 +12,17 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new HtmlWebpackPlugin({template: './earrings3D/index.html'}),
+        new HtmlWebpackPlugin({template: './tryon.html'}),
         new webpack.ProvidePlugin({
             THREE: 'three'
         }),
         new CopyWebpackPlugin([
-            './earrings3D/assets/**'
+            './earrings3D/assets/**',
+            './webar/**',
+            './neuralNets/**',
+            './libs/**',
+            './helpers/**'
+
         ])
     ]
 };
